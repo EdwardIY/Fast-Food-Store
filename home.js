@@ -36,10 +36,8 @@ document.querySelector('.close').onclick=function (){
 
 import * as inventory from './inventory.js';
 
-console.log(inventory)
 
-const categories = [...Object.keys(inventory)];
-console.log(categories)
+const categories = inventory.Categories.value;
 const main = document.querySelector('main');
 
 for (let category of categories) {
@@ -51,7 +49,6 @@ for (let category of categories) {
     container.className = 'foodContainer';
 
     for (let item in inventory[category]) {
-        console.log(inventory[category][item].img)
         container.innerHTML += `
         <div class="foodItem">
         <img class="" src=${inventory[category][item].img} alt="">
@@ -59,7 +56,9 @@ for (let category of categories) {
             <p class="">${inventory[category][item].name}</p>
             <p class="priceText">${inventory[category][item].prices[0]}</p>
             <span class="calText">|${inventory[category][item].cal[0]}cal</span>
-            <select class="firstSelect">${inventory[category][item].option_1.map((option)=> `<option value=${option}>${option}</option>`)} </select>
+            ${inventory[category][item].option_1 ?
+            `<select class='firstSelect'>${inventory[category][item].option_1.map((option)=> `<option value=${option}>${option}</option>`)} </select>`:''
+             }
             ${inventory[category][item].option_2 ?
             `<select class='secondSelect'>${inventory[category][item].option_2.map((option)=> `<option value=${option}>${option}</option>`)} </select>`:''
              }
@@ -68,7 +67,6 @@ for (let category of categories) {
     </div>
         `
     }
-
     main.appendChild(title);
     main.appendChild(container);
 }
