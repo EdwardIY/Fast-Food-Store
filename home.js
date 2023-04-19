@@ -36,7 +36,7 @@ document.querySelector('.close').onclick=function (){
 
 import * as inventory from './inventory.js';
 
-
+// Inventory
 const categories = inventory.Categories.value;
 const main = document.querySelector('main');
 
@@ -49,18 +49,19 @@ for (let category of categories) {
     container.className = 'foodContainer';
 
     for (let item in inventory[category]) {
+       // console.log(inventory[category][item].option_1.map((option)=> console.log(option)))
         container.innerHTML += `
-        <div class="foodItem">
+        <div id=${category + '_' + inventory[category][item].id} class="foodItem">
         <img class="" src=${inventory[category][item].img} alt="">
         <div class="foodText">
             <p class="">${inventory[category][item].name}</p>
             <p class="priceText">${inventory[category][item].prices[0]}</p>
-            <span class="calText">|${inventory[category][item].cal[0]}cal</span>
+            <span class="calText">/${inventory[category][item].cal[0]}cal</span>
             ${inventory[category][item].option_1 ?
-            `<select class='firstSelect'>${inventory[category][item].option_1.map((option)=> `<option value=${option}>${option}</option>`)} </select>`:''
+            `<select id='select' class='firstSelect'>${inventory[category][item].option_1.map((option)=> `<option value=${encodeURIComponent(option)}>${option}</option>`)} </select>`:''
              }
             ${inventory[category][item].option_2 ?
-            `<select class='secondSelect'>${inventory[category][item].option_2.map((option)=> `<option value=${option}>${option}</option>`)} </select>`:''
+            `<select id='select' class='secondSelect'>${inventory[category][item].option_2.map((option)=> `<option value=${option}>${option}</option>`)} </select>`:''
              }
             <button class="addBtn">ADD</button>
         </div>
@@ -69,6 +70,23 @@ for (let category of categories) {
     }
     main.appendChild(title);
     main.appendChild(container);
+}
+
+main.addEventListener('click', (e) => {
+    if (e.target.id == 'select')
+        update(e.target.parentElement, e.target.parentElement.parentElement.id.split('_'))
+})
+function update(element,id) {
+    let info = inventory[id[0]][id[1]];
+
+    let option = info.option_1.indexOf(decodeURIComponent(element.children[3].value));
+
+
+    console.log(element.children[3].value)
+    console.log(option)
+    console.log(element.children)
+    element.children[2].textContent = '/' + info.cal[option] + 'cal'
+    element.children[1].textContent = info.prices[option]
 }
 
 
