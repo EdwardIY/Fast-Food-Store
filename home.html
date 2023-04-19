@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./home.css">
+    <script src="https://kit.fontawesome.com/675ee43295.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+    <div class="cart-Bg"></div>
+
+    <header>
+        <nav class="nav">
+            <ul>
+                <li> <a href="./home.html">Home</a> </li>
+                <!-- <li> <a href="./menu.html">Menu</a> </li>
+                <li> <a href="./contact.html">Contact</a> </li>
+                <li> <a href="./about.html">About</a> </li> -->
+            </ul>
+            <div class="signInBag">
+                <a class="signIn" href="./T5.html">Sign in</a>
+                <i onclick="bringCart()" class="fa-solid fa-cart-shopping bag">
+                    <span class="cartCounter">0</span>
+                </i>
+            </div>
+        </nav>
+    </header>
+    <section class="logo">
+        <i class="fa-solid fa-bars open"></i>
+        <i class="fa-solid fa-bars-staggered close"></i>
+        <!-- <i class="fa-solid fa-bag-shopping bagPhone"></i> -->
+        <i onclick="bringCart()" class="fa-solid fa-cart-shopping bagPhone">
+            <span class="cartCounter">0</span>
+        </i>
+
+        <h2 class="nativeBurger">Native Burger</h2>
+        <div class="categoryNav nativeBurger">
+            <a href="#burger">Burgers</a>
+            <a href="#pizza"> Pizza</a>
+            <a href="#salads">Salads</a>
+            <a href="#wings">Wings</a>
+            <a href="#sides">Sides</a>
+            <a href="#drinks">Drinks</a>
+            <a href="#desserts">Desserts</a>
+        </div>
+        <div class="menuNav2">
+            <div class="menuNav2title">Categories</div>
+            <ul class="menuNav2-categories">
+                <li> <a href="#burger">Burgers</a> </li>
+                <li><a href="#pizza"> Pizza</a></li>
+                <li><a href="#salads">Salads</a></li>
+                <li><a href="#wings">Wings</a></li>
+                <li><a href="#sides">Sides</a></li>
+                <li><a href="#drinks">Drinks</a> </li>
+                <li><a href="#desserts">Desserts</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="checkoutContainer">
+        <i class="fa-solid fa-xmark closeCart" onclick="closeCart()"></i>
+        <div class="checkoutBtn">
+            <span class="checkout">Checkout</span>
+            <div class="totalPrice-totalItems">
+                <span class="totalCartPrice">$105.54</span>
+                <span class="totalItems">6 items</span>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <main class="main">
+        <!-- <img src="./images/classic burger (2).jpg" alt=""> -->
+        <!-- 
+        <h2 id=" burger" class="category">Burgers</h2>
+        <section class="foodContainer">
+            <div class="foodItem">
+                <img class="" src="./images/classic burger (2).jpg" alt="">
+                <div class="foodText">
+                    <p class="">Apache Burger</p>
+                    <p class="priceText"></p>
+                    <span class="calText">|400cal</span>
+                    <select class=" firstSelect sandOcombo">
+                        <option value="">Sandwhich</option>
+                        <option value="">Regular Combo</option>
+                    </select>
+                    <button class="addBtn">ADD</button>
+                </div>
+            </div>
+   
+        </section>
+
+        <h2 id="pizza" class="category">Pizza</h2>
+        <section class="foodContainer">
+            <div class="foodItem skill-1">
+                <img class="" src="./images/pexels-jéshoots-3644.jpg" alt="">
+                <div class="foodText">
+                    <p class="">Cheese Pizza</p>
+                    <p class=""></p>
+                    <span class="">|400 cal</span>
+                    <select class="firstSelect">
+                        <option disabled selected value>Size</option>
+                        <option>Large</option>
+                        <option selected="selected">Medium</option>
+                        <option>Slice</option>
+                    </select>
+                    <button class="addBtn">ADD</button>
+                </div>
+            </div>
+        </section>
+
+        <h2 id="salads" class="category">Salads</h2>
+        <section class="foodContainer">
+            <div class="foodItem">
+                <img class="" src="./images/chef salad.jpg" alt="">
+                <div class="foodText">
+                    <p class="">Chef salad</p>
+                    <p class="">$5.50</p>
+                    <span class="">|400 cal</span>
+                    <button class="addBtn">ADD</button>
+                </div>
+            </div>
+        </section>
+
+        <h2 id="wings" class="category">Wings</h2>
+        <section class="foodContainer">
+            <div class="foodItem">
+                <img class="" src="./images/wings.jpg" alt="">
+                <div class="foodText">
+                    <p class="">Classic Hot Wings</p>
+                    <p class="">$5.50</p>
+                    <span>|400 cal</span>
+                    <button class="addBtn">ADD</button>
+                </div>
+            </div>
+        </section>
+
+        <h2 id="sides" class="category">Sides</h2>
+        <section class="foodContainer">
+            <div class="foodItem">
+                <img class="" src="./images/fries.jpg">
+                <div class="foodText">
+                    <p class="">Fresh fries</p>
+                    <p class=""></p>
+                    <span class="">|400 cal</span>
+                    <select class="firstSelect">
+                        <option disabled selected value>Size</option>
+                        <option>Large</option>
+                        <option>Medium</option>
+                        <option selected="selected">Small</option>
+                    </select>
+                    <button class="addBtn">ADD</button>
+                </div>
+            </div>
+        </section>
+
+        <h2 id="drinks" class="category">Drinks</h2>
+        <section class="foodContainer">
+            <div class="foodItem">
+                <img class="" src="./images/s.jpg">
+                <div class="foodText">
+                    <p class="">Fountain Soda</p>
+                    <p class=""></p>
+                    <span class="">|400 cal</span>
+                    <select class="firstSelect">
+                        <option>Cola</option>
+                        <option>Dr.Pepper</option>
+                        <option>Mountain Dew</option>
+                        <option>Sprite</option>
+                    </select>
+                    <select class="secondSelect">
+                        <option disabled selected value>Size</option>
+                        <option>Large</option>
+                        <option selected="selected">Medium</option>
+                        <option>Small</option>
+                    </select>
+
+                    <button class="addBtn">ADD</button>
+                </div>
+            </div>
+        </section>
+
+        <h2 id="desserts" class="category">Desserts</h2>
+        <section class="foodContainer">
+            <div class="foodItem skill-1">
+                <img class="" src="./images/i cone.jpg">
+                <div class="foodText">
+                    <p class="">Ice Cream Cone</p>
+                    <p class=""></p>
+                    <span class="">|400 cal</span>
+                    <select class="firstSelect firstSelectType3">
+                        <option>Vanilla</option>
+                        <option>Choclate</option>
+                        <option>Strawberry</option>
+                    </select>
+                    <select class="secondSelect sandOcombo24">
+                        <option disabled selected value>Size</option>
+                        <option>Large</option>
+                        <option>Medium</option>
+                        <option selected="selected">Small</option>
+                    </select>
+
+                    <button class="addBtn">ADD</button>
+                </div>
+            </div>
+        </section> -->
+    </main>
+    <script type="module"  src="./home.js"></script>
+</body>
+
+</html>
